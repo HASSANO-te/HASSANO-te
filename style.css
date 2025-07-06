@@ -1,0 +1,194 @@
+body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    background-color: #00000a; /* Even darker space */
+    color: #ddeeff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align to top to see all controls */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll from controls */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(5, 5, 20, 0.85);
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(120, 180, 255, 0.6);
+    width: 95vw;
+    max-width: 900px; /* Max width of overall container */
+    margin-top: 10px; /* Space from top */
+    margin-bottom: 10px; /* Space from bottom */
+}
+
+h1 {
+    color: #aaccff;
+    text-shadow: 0 0 12px #88aaff;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.controls-zoom-container {
+    display: flex;
+    flex-direction: column; /* Stack controls and zoom buttons */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 10px; /* Space before zoom buttons */
+    width: 100%;
+}
+
+.control-group {
+    margin: 5px 10px;
+    text-align: center;
+    min-width: 200px;
+    flex-grow: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #cce5ff;
+    font-size: 0.9em;
+}
+
+input[type="range"] {
+    width: 90%;
+    cursor: grab;
+}
+
+.zoom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.zoom-controls button {
+    background-color: #203050;
+    color: #aaddff;
+    border: 1px solid #406090;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+.zoom-controls button:hover {
+    background-color: #304070;
+}
+ .zoom-controls span {
+    margin: 0 10px;
+    color: #cce5ff;
+ }
+
+
+.simulation-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative; /* For potential future overlays if needed */
+}
+
+#starCanvas {
+    background-color: #000000;
+    border-radius: 10px;
+    border: 1px solid #223355;
+    box-shadow: inset 0 0 15px #000;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    cursor: grab; /* Indicate interactivity for mouse wheel zoom */
+}
+#starCanvas:active {
+    cursor: grabbing;
+}
+
+#starInfo {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgba(15, 25, 45, 0.75);
+    border-radius: 8px;
+    color: #ddeeff;
+    width: 100%;
+    max-width: 700px; /* Match canvas max width */
+    min-height: 120px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    line-height: 1.5;
+    border: 1px solid #203050;
+}
+
+#starInfo h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #aaccff;
+    font-size: 1.2em;
+}
+#starInfo h3 { /* For Star Designation */
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #88bbdd;
+    font-size: 1em;
+    font-style: italic;
+}
+
+/* Slider appearance */
+input[type=range] {
+    -webkit-appearance: none; margin: 10px 0; background: transparent;
+}
+input[type=range]:focus { outline: none; }
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%; height: 8px; cursor: pointer; /* animate: 0.2s; */ /* animation property not needed directly on track here */
+    box-shadow: 1px 1px 1px #000000; background: #406090;
+    border-radius: 5px; border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000; border: 1px solid #000000;
+    height: 18px; width: 18px; border-radius: 50%;
+    background: #cceeff; cursor: pointer; -webkit-appearance: none; margin-top: -5px;
+}
+/* Firefox */
+input[type=range]::-moz-range-track {
+    width: 100%; height: 8px; cursor: pointer;
+    box-shadow: 1px 1px 1px #000000; background: #406090;
+    border-radius: 5px; border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000; border: 1px solid #000000;
+    height: 18px; width: 18px; border-radius: 50%;
+    background: #cceeff; cursor: pointer;
+}
+/* IE/Edge */
+input[type=range]::-ms-track {
+    width: 100%; height: 8px; cursor: pointer;
+    background: transparent; border-color: transparent; color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #3071A9; border: 0.2px solid #010101;
+    border-radius: 10px; box-shadow: 1px 1px 1px #000000;
+}
+input[type=range]::-ms-fill-upper {
+    background: #406090; border: 0.2px solid #010101;
+    border-radius: 10px; box-shadow: 1px 1px 1px #000000;
+}
+input[type=range]::-ms-thumb {
+    margin-top: 1px; box-shadow: 1px 1px 1px #000000; border: 1px solid #000000;
+    height: 18px; width: 18px; border-radius: 50%; background: #cceeff; cursor: pointer;
+}
